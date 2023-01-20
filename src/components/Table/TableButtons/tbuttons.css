@@ -1,0 +1,11 @@
+.table_buttons {
+    min-width: 80px;
+    min-height: 40px;
+}
+
+.table_buttons-wrapper {
+    padding-left: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 5px;
+}

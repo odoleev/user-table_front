@@ -1,0 +1,13 @@
+.table_cells {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.table_cells__blocked {
+    color: darkred;
+}
+
+.table_cells__not-blocked {
+    color: darkgreen;
+}
+
