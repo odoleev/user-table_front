@@ -1,3 +1,9 @@
 .header-container {
     margin-bottom: 25px;
 }
+
+@media (max-width: 756px) {
+    .header-container {
+        width: 756px;
+    }
+}
