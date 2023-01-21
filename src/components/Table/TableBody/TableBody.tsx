@@ -6,6 +6,7 @@ import { IconButton, Tooltip } from '@mui/material';
 import { IUser } from '../../../store/reducers/users/types';
 import { ITbody } from './tbody.types';
 import './tbody.css';
+import { dateConverter } from '../../../utils/dateConverter';
 
 export function TableBody({
   users,
@@ -31,8 +32,10 @@ export function TableBody({
           <td className="table_cells">{user.id}</td>
           <td className="table_cells">{user.email}</td>
           <td className="table_cells">{user.username}</td>
-          <td className="table_cells">{user.dateReg}</td>
-          <td className="table_cells">{user.dateLastLogin}</td>
+          <td className="table_cells">{dateConverter(user.dateReg)}</td>
+          <td className="table_cells">
+            {user.dateLastLogin ? dateConverter(user.dateLastLogin) : ''}
+          </td>
           <td
             className={`table_cells ${
               user.banned ? 'table_cells__blocked' : 'table_cells__not-blocked'

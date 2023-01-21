@@ -52,8 +52,8 @@ export function TablePage() {
     }
   };
 
-  const handleDelete = async (id: string) => {
-    await getUsers();
+  const handleDelete = (id: string) => {
+    getUsers();
     setIsUsersChanged(true);
     if (banned === 'false') {
       deleteUser(id);
@@ -64,8 +64,8 @@ export function TablePage() {
     }
   };
 
-  const handleBlock = async (id: string) => {
-    await getUsers();
+  const handleBlock = (id: string) => {
+    getUsers();
     if (banned === 'false') {
       blockUser(id);
       if (id === currentId) {
@@ -76,20 +76,22 @@ export function TablePage() {
     setIsUsersChanged(true);
   };
 
-  const handleUnblock = async (id: string) => {
-    await getUsers();
+  const handleUnblock = (id: string) => {
+    getUsers();
     setIsUsersChanged(true);
     if (banned === 'false') {
       unblockUser(id);
     }
   };
 
-  const blockSelected = () => {
+  const blockSelected = async () => {
     if (!currentId) return;
 
     isCheck.map((id: string) => {
       if (id !== currentId) blockUser(id);
     });
+
+    getUsers();
 
     if (isCheck.includes(currentId)) {
       blockUser(currentId);
@@ -106,6 +108,8 @@ export function TablePage() {
       unblockUser(id);
     });
 
+    getUsers();
+
     setIsUsersChanged(true);
     setIsCheck([]);
     setIsCheckAll(false);
@@ -117,6 +121,8 @@ export function TablePage() {
     isCheck.map((id: string) => {
       if (id !== currentId) deleteUser(id);
     });
+
+    getUsers();
 
     if (isCheck.includes(currentId)) {
       deleteUser(currentId);
