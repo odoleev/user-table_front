@@ -17,6 +17,12 @@ export function AuthPage({ type }: IAuthPage) {
   const title = firstLetterToUpperCase(type);
   const navigate = useNavigate();
 
+  const cleanRefValue = () => {
+    emailRef.current.value = '';
+    usernameRef.current.value = '';
+    passwordRef.current.value = '';
+  };
+
   const handleLogin = (email: string, password: string) => {
     if (!email || !password) {
       setIsAllFields(true);
@@ -42,9 +48,7 @@ export function AuthPage({ type }: IAuthPage) {
     if (await result) {
       navigate('/login');
     }
-    emailRef.current.value = '';
-    usernameRef.current.value = '';
-    passwordRef.current.value = '';
+    cleanRefValue();
   };
 
   const onSubmit = (e: React.SyntheticEvent) => {
@@ -110,7 +114,9 @@ export function AuthPage({ type }: IAuthPage) {
       ) : (
         <div>
           <span>Have account? </span>
-          <Link to="/login">Sign in</Link>
+          <Link onClick={cleanRefValue} to="/login">
+            Sign in
+          </Link>
         </div>
       )}
     </div>
