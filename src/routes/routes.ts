@@ -1,6 +1,4 @@
-import { AuthPage } from '../pages/Auth/Auth';
-import { TablePage } from '../pages/Table/Table';
-import { AuthEnum } from '../pages/pages.types';
+import { AuthPage, TablePage, AuthEnum } from '../pages';
 
 export const ROUTES = [
   {
